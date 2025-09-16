@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centros Turísticos de Santa Cruz - Experiencias Únicas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Importar fuentes premium */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Playfair+Display:wght@400;700;900&display=swap');
+
+        /* Variables CSS mejoradas */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --ocean-gradient: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+            --sunset-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            --cosmic-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --emerald-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --fire-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --text-light: #ffffff;
+            --text-dark: #2d3748;
+            --accent-neon: #00ff88;
+            --shadow-color: rgba(0, 0, 0, 0.25);
+        }
+
+        /* Reset y estilos base */ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: var(--cosmic-gradient);
+            background-attachment: fixed;
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Logo de la institución */
+        .school-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--accent-neon);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+        }
+
+        .school-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .school-logo svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Partículas flotantes mejoradas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(102, 126, 234, 0.4) 50%, transparent 100%);
+            border-radius: 50%;
+            animation: float-particle 20s infinite linear;
+            filter: blur(1px);
+        }
+
+        /* Ondas de fondo dinámicas */
+        .wave-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300%;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 50%;
+            animation: wave-animation 25s infinite linear;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: -8s;
+            opacity: 0.7;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1), rgba(245, 87, 108, 0.1));
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: -15s;
+            opacity: 0.5;
+            background: linear-gradient(135deg, rgba(17, 153, 142, 0.1), rgba(56, 239, 125, 0.1));
+        }
+
+        /* Sistema de páginas mejorado */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animaciones premium */
+        @keyframes float-particle {
+            0% {
+                transform: translateY(120vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120px) translateX(200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: translateX(-100%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(0%) rotate(360deg);
+            }
+        }
+
+        @keyframes neon-glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(0, 255, 136, 0.8), 0 0 60px rgba(0, 255, 136, 0.5);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes premium-bounce {
+            0% {
+                transform: scale(0.3) rotate(-180deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-up-fade {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes holographic {
+            0% {
+                background-position: 0% 0%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        @keyframes success-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(56, 239, 125, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 30px rgba(56, 239, 125, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(56, 239, 125, 0);
+            }
+        }
+
+        @keyframes award-shine {
+            0% { transform: translateX(-100%) rotate(35deg); }
+            100% { transform: translateX(100vw) rotate(35deg); }
+        }
+
+        /* Encabezado espectacular mejorado */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #38ef7d 75%, #fee140 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+            color: var(--text-light);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px var(--shadow-color);
+        } 
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.15) 60deg, transparent 120deg);
+            animation: spin 20s linear infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: award-shine 4s ease-in-out infinite;
+        }
+
+        /* Distintivo de ganador */
+        .winner-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            color: #2d3748;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            animation: success-pulse 3s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .winner-badge::before {
+            content: '🏆';
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        header h1 { 
+            margin: 30px 0 20px 0;
+            font-size: 4.5em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            z-index: 2;
+            animation: neon-glow 3s ease-in-out infinite;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #fff, #00ff88, #fff, #FFD700, #fff);
+            background-size: 500% 500%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: holographic 4s ease-in-out infinite, neon-glow 3s ease-in-out infinite;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .header-subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-top: 20px;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navegación futurista mejorada */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-left: 100px; /* Espacio para el logo */
+        }
+
+        nav a {
+            color: var(--text-light);
+            padding: 25px 35px;
+            text-decoration: none;
+            position: relative;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: var(--emerald-gradient);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--emerald-gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        nav a:hover {
+            transform: translateY(-5px);
+            color: var(--text-dark);
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover::after {
+            opacity: 0.2;
+        }
+
+        nav a.active {
+            background: var(--emerald-gradient);
+            color: var(--text-dark);
+            border-radius: 15px;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Sección hero premium mejorada */
+        .hero {
+            padding: 120px 20px;
+            text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            position: relative;
+            animation: premium-bounce 2s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--glass-border);
+            margin: 40px 20px;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(102, 126, 234, 0.1) 0%,
+                rgba(118, 75, 162, 0.1) 20%,
+                rgba(240, 147, 251, 0.1) 40%,
+                rgba(17, 153, 142, 0.1) 60%,
+                rgba(56, 239, 125, 0.1) 80%,
+                rgba(254, 225, 64, 0.1) 100%);
+            background-size: 600% 600%;
+            animation: gradient-shift 12s ease infinite;
+            z-index: -1;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Cdefs%3E%3ClinearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"%3E%3Cstop offset="0%" style="stop-color:%23667eea;stop-opacity:0.3"/%3E%3Cstop offset="50%" style="stop-color:%23764ba2;stop-opacity:0.2"/%3E%3Cstop offset="100%" style="stop-color:%23f093fb;stop-opacity:0.3"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="100%" height="100%" fill="url(%23bg)"/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .hero h2 {
+            font-size: 5.5em;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            background: var(--fire-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.2;
+            animation: slide-up-fade 1s ease-out 0.5s both;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .hero p {
+            font-size: 1.7em;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: slide-up-fade 1s ease-out 1s both;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            background: rgba(0,0,0,0.2);
+            padding: 25px 35px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Títulos de sección mejorados */
+        .section-title {
+            text-align: center;
+            font-size: 4em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 80px 0 60px 0;
+            animation: slide-up-fade 1s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: var(--accent-neon);
+            border-radius: 3px;
+            box-shadow: 0 0 25px var(--accent-neon);
+        }
+
+        /* Galería espectacular mejorada */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 60px; 
+            padding: 80px 20px; 
+            max-width: 1800px;
+            margin: 0 auto;
+        } 
+
+        .card { 
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slide-up-fade 1.2s ease-out;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.08) 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.08) 75%,
+                transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .card:nth-child(1) { 
+            animation-delay: 0.2s; 
+            border-image: linear-gradient(45deg, #667eea, #764ba2) 1;
+        }
+        .card:nth-child(2) { 
+            animation-delay: 0.4s; 
+            border-image: linear-gradient(45deg, #f093fb, #f5576c) 1;
+        }
+        .card:nth-child(3) { 
+            animation-delay: 0.6s; 
+            border-image: linear-gradient(45deg, #11998e, #38ef7d) 1;
+        }
+        .card:nth-child(4) { 
+            animation-delay: 0.8s; 
+            border-image: linear-gradient(45deg, #fa709a, #fee140) 1;
+        }
+        .card:nth-child(5) { 
+            animation-delay: 1.0s; 
+            border-image: linear-gradient(45deg, #FFD700, #FFA500) 1;
+        }
+        .card:nth-child(6) { 
+            animation-delay: 1.2s; 
+            border-image: linear-gradient(45deg, #667eea, #f093fb) 1;
+        }
+        .card:nth-child(7) { 
+            animation-delay: 1.4s; 
+            border-image: linear-gradient(45deg, #38ef7d, #fa709a) 1;
+        }
+
+        .card:hover {
+            transform: translateY(-25px) scale(1.08) rotateX(8deg);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.35);
+            border-color: var(--accent-neon);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            transition: all 0.6s ease;
+            border-radius: 0;
+        }
+
+        .card:hover img {
+            transform: scale(1.15);
+            filter: brightness(1.2) saturate(1.3);
+        }
+
+        .card h3, .card h1 {
+            margin: 25px 30px 20px 30px;
+            color: var(--text-light);
+            font-size: 1.6em;
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .card p {
+            margin: 0 30px 40px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            font-weight: 300;
+            font-size: 1.1em;
+            letter-spacing: 0.3px;
+        }
+
+        /* Sección de actividades premium */
+        .activities-section {
+            padding: 100px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            position: relative;
+            margin: 40px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+        }
+
+        .activities-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ocean-gradient);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .activities-list {
+            max-width: 1200px; 
+            margin: auto; 
+            list-style: none; 
+            padding: 0;
+        }
+
+        .activity-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            margin: 40px 0; 
+            padding: 50px; 
+            border-radius: 25px;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slide-up-fade 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--emerald-gradient);
+            transform: scaleY(0);
+            transition: transform 0.6s ease;
+        }
+
+        .activity-item:nth-child(1) { animation-delay: 0.1s; }
+        .activity-item:nth-child(2) { animation-delay: 0.3s; }
+        .activity-item:nth-child(3) { animation-delay: 0.5s; }
+        .activity-item:nth-child(4) { animation-delay: 0.7s; }
+
+        .activity-item:hover {
+            transform: translateX(20px) scale(1.02);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.3);
+            border-color: var(--accent-neon);
+        }
+
+        .activity-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .activity-item h4 {
+            color: var(--text-light);
+            font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 25px;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .activity-item p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        /* Formulario premium mejorado */
+        form {
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.25), 
+                rgba(118, 75, 162, 0.25), 
+                rgba(240, 147, 251, 0.25));
+            backdrop-filter: blur(30px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+            padding: 60px;
+            width: 100%;
+            max-width: 600px;
+            margin: 60px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.12) 50%,
+                transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        form:hover::before {
+            transform: translateX(100%);
+        }
+
+        form h2 {
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 22px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-radius: 18px;
+            font-size: 17px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.3);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 22px;
+            background: var(--emerald-gradient);
+            color: white;
+            border: none;
+            border-radius: 18px;
+            font-size: 19px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            box-shadow: 0 12px 35px rgba(17, 153, 142, 0.45);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(17, 153, 142, 0.6);
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:active {
+            transform: translateY(-2px);
+        }
+
+        .thank-you {
+            display: none;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            margin: 60px auto;
+            max-width: 600px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            padding: 60px 40px 50px 40px;
+            border: 2px solid var(--glass-border);
+            overflow: hidden;
+        }
+
+        .thank-you::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--emerald-gradient);
+            opacity: 0.12;
+            z-index: -1;
+        }
+
+        .thank-you h2 {
+            color: var(--accent-neon);
+            font-size: 3em;
+            margin-bottom: 30px;
+            animation: success-pulse 2s ease-out;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 25px var(--accent-neon);
+        }
+
+        .thank-you p {
+            font-size: 1.3em;
+            margin-bottom: 35px;
+            opacity: 0;
+            animation: slide-up-fade 1s ease-out 0.5s forwards;
+            line-height: 1.7;
+        }
+
+        .checkmark {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--emerald-gradient);
+            margin: 0 auto 35px;
+            position: relative;
+            animation: premium-bounce 1s ease-out 0.2s both;
+            box-shadow: 0 15px 40px rgba(17, 153, 142, 0.6);
+        }
+
+        .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: confetti-fall 4s ease-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti:nth-child(1) { background: #667eea; left: 10%; animation-delay: 0s; }
+        .confetti:nth-child(2) { background: #764ba2; left: 20%; animation-delay: 0.3s; }
+        .confetti:nth-child(3) { background: #f093fb; left: 30%; animation-delay: 0.6s; }
+        .confetti:nth-child(4) { background: #11998e; left: 40%; animation-delay: 0.9s; }
+        .confetti:nth-child(5) { background: #38ef7d; left: 50%; animation-delay: 1.2s; }
+        .confetti:nth-child(6) { background: #fa709a; left: 60%; animation-delay: 1.5s; }
+        .confetti:nth-child(7) { background: #fee140; left: 70%; animation-delay: 1.8s; }
+        .confetti:nth-child(8) { background: #ff6b6b; left: 80%; animation-delay: 2.1s; }
+        .confetti:nth-child(9) { background: #4ecdc4; left: 90%; animation-delay: 2.4s; }
+
+        /* Pie de página espectacular */
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #38ef7d 75%, #fee140 100%);
+            background-size: 500% 500%;
+            animation: gradient-shift 15s ease infinite;
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--accent-neon);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: shimmer 5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        footer h3 {
+            font-size: 3em;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 6px 25px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(45deg, #fff, #00ff88, #fff, #FFD700, #fff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: holographic 4s ease-in-out infinite;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 2.2em;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.35);
+            backdrop-filter: blur(18px);
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        .social-icon.whatsapp {
+            background: linear-gradient(135deg, #25D366, #20B15A, #128C7E);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #E4405F, #C13584, #833AB4, #405DE6);
+            box-shadow: 0 12px 35px rgba(228, 64, 95, 0.6);
+        }
+
+        .social-icon.facebook {
+            background: linear-gradient(135deg, #1877F2, #42A5F5, #2196F3);
+            box-shadow: 0 12px 35px rgba(24, 119, 242, 0.6);
+        }
+
+        .social-icon.tiktok {
+            background: linear-gradient(135deg, #000000, #333333, #000000);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-15px) scale(1.25) rotate(18deg);
+            animation: success-pulse 0.9s ease-in-out;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            border-color: var(--accent-neon);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content p {
+            margin: 25px 0;
+            font-size: 1.3em;
+            line-height: 1.8;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        .footer-content p strong {
+            color: var(--accent-neon);
+            text-shadow: 0 0 18px var(--accent-neon);
+            font-weight: 700;
+        }
+
+        /* Responsividad mejorada */
+        @media (max-width: 768px) {
+            .school-logo {
+                width: 60px;
+                height: 60px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .school-logo svg {
+                width: 45px;
+                height: 45px;
+            }
+
+            .winner-badge {
+                top: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            nav {
+                margin-left: 80px;
+            }
+
+            header h1 {
+                font-size: 3.2em;
+                letter-spacing: 2px;
+                margin: 20px 0 15px 0;
+            }
+
+            .header-subtitle {
+                font-size: 1.2em;
+            }
+
+            .hero h2 {
+                font-size: 3.8em;
+                line-height: 1.1;
+            }
+
+            .hero p {
+                font-size: 1.4em;
+                padding: 20px 25px;
+            }
+
+            .section-title {
+                font-size: 2.8em;
+                margin: 60px 0 40px 0;
+            }
+
+            nav a {
+                padding: 18px 25px;
+                font-size: 0.95em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 15px;
+            }
+
+            .card img {
+                height: 250px;
+            }
+
+            .hero {
+                padding: 80px 20px;
+                margin: 20px 10px;
+                border-radius: 25px;
+            }
+
+            .activities-section {
+                margin: 20px 10px;
+                padding: 60px 15px;
+                border-radius: 25px;
+            }
+
+            form {
+                margin: 30px 15px;
+                padding: 45px 30px;
+                border-radius: 25px;
+            }
+
+            .footer-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            footer h3 {
+                font-size: 2.2em;
+            }
+
+            .social-icons {
+                gap: 25px;
+            }
+
+            .social-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8em;
+            }
+
+            .thank-you {
+                margin: 30px 15px;
+                padding: 45px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .school-logo {
+                width: 50px;
+                height: 50px;
+                top: 10px;
+                left: 10px;
+            }
+
+            .school-logo svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            .winner-badge {
+                top: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                font-size: 0.8em;
+            }
+
+            nav {
+                margin-left: 60px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            .hero h2 {
+                font-size: 2.8em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            nav a {
+                padding: 15px 18px;
+                font-size: 0.85em;
+            }
+
+            .card h3, .card h1 {
+                font-size: 1.4em;
+                margin: 20px 25px 15px 25px;
+            }
+
+            .card p {
+                margin: 0 25px 30px;
+                font-size: 1em;
+            }
+
+            .activity-item {
+                padding: 35px 25px;
+            }
+
+            form {
+                padding: 40px 25px;
+            }
+
+            .footer-content p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo de la institución educativa en la esquina superior derecha, formato vertical y no redondo -->
+    <div class="school-logo" style="top: 20px; right: 20px; left: auto; width: 60px; height: 70px; position: fixed; z-index: 10000; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(58, 206, 90, 0.95); border: 3px solid var(--accent-neon); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        <img src="csc.jpg" alt="Logo Institución" style="width: 80px; height: 90px; border-radius: 8px; object-fit: cover; object-position: center;" />
+    </div>
+    <!-- Ondas de fondo -->
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave"></div>s
+        <div class="wave"></div>
+    </div>
+
+    <!-- Encabezado -->
+    <header>
+        </div>
+        <h1>Centros Turísticos de Santa Cruz</h1>
+        <div class="header-subtitle">
+            "Donde la historia vive y la naturaleza enamora"
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="#" onclick="showPage('inicio')" class="nav-link active">Inicio</a>
+        <a href="#" onclick="showPage('lugares')" class="nav-link">Lugares</a>
+        <a href="#" onclick="showPage('actividades')" class="nav-link">Actividades</a>
+        <a href="#" onclick="showPage('contacto')" class="nav-link">Contacto</a>
+    </nav>
+
+    <!-- Página de Inicio -->
+    <div class="page active" id="inicio">
+        <section class="hero">
+            <div class="hero-bg-image"></div>
+            <h2>Santa Cruz Te Espera</h2>
+            <p>Descubre la magia de la provincia de <strong>Santa Cruz, Cajamarca</strong>, un destino que te invita a vivir una aventura inigualable. Cada rincón te sorprenderá, desde la herencia de sus maravillas ancestrales hasta la belleza natural de sus paisajes. Aquí, cada camino es una historia, y cada vista es un recuerdo que atesorarás para siempre.</p>
+        </section>
+    </div>
+    <style>
+                .hero-bg-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0;
+                    background-image: url('s.jpg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center center;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+                    z-index: 0;
+                    opacity: 0.35;
+                }
+                .hero > *:not(.hero-bg-image) {
+                    position: relative;
+                    z-index: 1;
+                }
+                /* Adaptar y mejorar contraste del texto en la sección hero */
+                .hero h2 {
+                    color: #d32222;
+                    text-shadow: 0 4px 24px #d36969, 0 1px 0 #fff, 0 0 8px #38ef7d;
+                    background: linear-gradient(90deg, #11998e 0%, #38ef7d 40%, #f093fb 100%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    filter: drop-shadow(0 2px 10px #764ba2);
+                }
+                .hero p {
+                    color: #fdf6fb;
+                    text-shadow: 0 2px 12px #764ba2, 0 1px 0 #38ef7d;
+                    background: rgba(56,239,125,0.13);
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    display: inline-block;
+                    font-weight: 400;
+                }
+            </style>
+
+    <!-- Página de Lugares -->
+    <div class="page" id="lugares">
+        <h2 class="section-title">Nuestros Destinos</h2>
+        
+        <section class="gallery" style="display: grid; grid-template-columns: repeat(3, 3fr); gap: 60px; padding: 80px 20px; max-width: 1800px; margin: 0 auto;">
+            <div class="card">
+                <img src="sa.jpg" width="550px" height="50%">
+                <h1>Plaza de Armas de la Provincia de Santa Cruz</h1>
+                <p>El corazón histórico y cultural de nuestra provincia. Un espacio donde convergen tradición y modernidad, rodeado de arquitectura colonial y lleno de vida comunitaria que refleja la esencia de nuestro pueblo.</p>
+            </div>
+            
+            <div class="card">
+                <img src="coturumis.jpg" width="550px" height="50%">
+                <h1>El mirador Cotorumi - Cristo Redentor</h1>
+                <p>Una experiencia espiritual y panorámica única. Desde este mirador podrás contemplar vistas espectaculares de todo el valle, mientras la imponente figura del Cristo Redentor te invita a la reflexión y paz interior.</p>
+                <img src="cotorumi2.jpg" width="550px" height="50%">
+            </div>
+            
+            <div class="card">
+                <img src="cerro tren.jpg" width="550px" height="50%">
+                <h1>El mirador Cerro Tren - arqueológico</h1>
+                <p> El Cerro Tren, con sus formaciones rocosas que asemejan un tren y sus enigmáticas piedras de figuras ancestrales, se levanta como un mirador natural de imponentes paisajes en Santa Cruz. En este espacio donde naturaleza e historia se entrelazan, el visitante descubre una joya única, reconocida como una de las maravillas más cautivadoras de Cajamarca.</p>
+                <img src="tre.jpg" width="550px" height="50%">
+            </div>
+
+            <div class="card">
+                <img src="chancay baños.jpg" width="600px" height="20%">
+                <h3>Baños Termales de Chancay Baños</h3>
+                <p>Relájate en aguas termales naturales con propiedades curativas. Un oasis de tranquilidad donde podrás renovar tu energía mientras disfrutas de las propiedades medicinales de estas aguas milenarias.</p>
+                <img src="plaza de arm b.jpg" width="580px" height="25%">
+                <p>Disfruta de las piscinas naturales en un ambiente de paz total.</p>
+                 <img src="pissinas.jpg" width="580px" height="25%">
+            </div>
+
+             <div class="card">
+                <img src="poro poro.jpg" width="500px" height="20%">
+                <h3>Centro arqueológico de Poro Poro- Catache</h3>
+                <p>Sumérgete en la historia precolombina de nuestra región. Este sitio arqueológico guarda secretos milenarios y ofrece una ventana única al pasado, donde estudiantes y visitantes pueden conectar con nuestras raíces ancestrales.</p>
+                <img src="poro poro 2.jpg" width="500px" height="20%">
+                <p>Los estudiantes de la I.E. han visitado esta maravilla histórica como parte de su formación cultural.</p>
+                <img src="poro poro 3.jpg" width="500px" height="20%">
+            </div>
+
+             <div class="card">
+                <img src="catarata del apto.jpg" width="550px" height="50%">
+                <h1>Catarata del apto Poro Poro- Catache</h1>
+                <p>Espectáculo natural impresionante donde el agua cae desde grandes alturas creando un ambiente de frescura y tranquilidad. Perfect para los amantes de la naturaleza y la fotografía, este lugar ofrece una experiencia revitalizante.</p>
+                <img src="catarata del apto 2.jpg" width="550px" height="50%">
+            </div>
+
+            <div class="card">
+                <img src="piedra.jpg" width="550px" height="50%">
+                <h1>La piedra chamana de Sexi</h1>
+                <p> Un lugar místico y lleno de energía ancestral. Esta formación rocosa ha sido venerada por generaciones y se dice que posee propiedades espirituales únicas. Un destino perfecto para quienes buscan conectar con la sabiduría antigua.</p>
+            <img src="piedra chamana.jpg" width="550px" height="50%">
+            </div>
+
+            <div class="card">
+                <img src="udima b.jpg" width="550px" height="50%">
+                <h1>Bosque nublado de Udima</h1>
+                <p>Un ecosistema único que alberga una biodiversidad impresionante. Camina entre la neblina y descubre flora y fauna endemicas, mientras disfrutas de un entorno natural lleno de magia y serenidad.</p>
+                <img src="catarata udima.jpg" width="550px" height="50%">
+                <p>Tambien puedes observar el unico oso de ante ojos en extinción de Udima</p>
+                <img src="oso udima.jpg" width="550px" height="50%">
+            </div>
+
+            <div class="card">
+                <img src="ventanillas.jpg" width="550px" height="50%">
+                <h1>Las Ventanillas de La Varriada Nueva</h1>
+                <p> un antiguo cementerio peruano preincaico, tallado en la roca que ofrece una visión fascinente de las prácticas funerarias de las culturas antiguas de la región.</p>
+                <img src="ventanillas 2.jpg" width="550px" height="50%">
+            </div>
+
+            <div class="card">
+                <img src="ushcupishgo.jpg" width="550px" height="50%">
+                <h1>Grutas de ushcupishgo- Ninabamba </h1>
+                <p> </p>Explora un mundo subterráneo fascinante,donde puedes puedes bañarte y disfrutar en aguas termales dentro de cuevas naturales/<p>  
+                <img src="us.jpg" width="550px" height="50%">
+                <img src="ushc.jpg" width="550px" height="50%">
+            </div>
+            <div class="card">
+                <img src="chancay r.jpg".jpg" width="550px" height="50%">
+                <h1>Tragadero del rio Chancay- Ninabamba </h1>
+                <p> </p>Explora un mundo subterráneo fascinante,donde puedes puedes bañarte y disfrutar en aguas termales dentro de cuevas naturales/<p>  
+                <img src="chancay r2.jpg" width="550px" height="50%">
+                <img src="chancay r3.jpg" width="550px" height="50%">
+            </div>
+            <div class="card">
+                <img src="cristo red.jpg" width="200px" height="900%">
+                <h1>El cristo redentor de Uticyacu</h1>
+                <p>Es una impresonante vista donde podemos observar a un cristo redente referente a la imagen de Cristo que esta ubicado en el distrito de Uticyacu.</p>
+            </div>
+            </section>
+    </div>
+
+    <!-- Página de Actividades ->
+    <div class="page" id="actividades">
+        <section class="activities-section">
+            <h2 class="section-title">Actividades Destacadas</h2>
+            
+            <ul class="activities-list">
+                <li class="activity-item">
+                    <h4>🥾 Senderismo Guiado</h4>
+                    <p>Explora los senderos más espectaculares de la región con nuestros guías expertos locales. Descubre flora y fauna única mientras disfrutas de vistas panorámicas increíbles y aprendes sobre la historia natural del lugar.</p>
+                </li>
+                
+                <li class="activity-item">
+                    <h4>🏛️ Tours Culturales</h4>
+                    <p>Sumérgete en la rica historia de Santa Cruz visitando sitios arqueológicos, aprendiendo sobre las tradiciones ancestrales y conociendo las costumbres que han perdurado a través de los siglos.</p>
+                </li>
+                
+                <li class="activity-item">
+                    <h4>🌟 Observación Nocturna</h4>
+                    <p>Experimenta la magia de la noche con actividades de observación astronómica y contemplación de paisajes bajo las estrellas. Perfecto para crear momentos memorables en familia.</p>
+                </li>
+                
+                <li class="activity-item">
+                    <h4>🎨 Talleres Culturales</h4>
+                    <p>Aprende sobre la rica cultura local a través de talleres interactivos de artesanías tradicionales, cocina regional auténtica y música folclórica con artistas y maestros locales.</p>
+                </li>
+                
+                <li class="activity-item">
+                    <h4>💧 Experiencias Termales</h4>
+                    <p>Relájate en las aguas termales naturales mientras disfrutas de tratamientos tradicionales y terapias de relajación en un entorno natural incomparable.</p>
+                </li>
+                
+                <li class="activity-item">
+                    <h4>📚 Turismo Educativo</h4>
+                    <p>Programas especiales para estudiantes que combinan diversión y aprendizaje, visitando sitios históricos y naturales con enfoque pedagógico y cultural.</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Página de Contacto con Formulario de Registro -->
+    <div class="page" id="contacto">
+        <footer>
+            <div class="footer-header">
+                <h3>Contáctanos</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/51983739447?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20los%20centros%20turísticos%20de%20Santa%20Cruz.%20¿Podrían%20darme%20más%20información?" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="social-icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@santacruztours?_t=ZS-8zP2lJGkaQx&_r=1" target="_blank" class="social-icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok" style="color: #f2f5f7;"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <p>📍 <strong>Dirección:</strong> Carretera de Santa Cruz a Yauyucan, Km 25 Carretera Principal</p>
+                <p>📞 <strong>Teléfono:</strong> +51 983739447</p>
+                <p>✉️ <strong>Email:</strong> denisnnoe@gmail.com</p>
+                <p>🕐 <strong>Horario:</strong> Lunes a Viernes de 8:00 AM a 4:00 PM</p>
+                <p>🌐 Síguenos en nuestras redes sociales y contáctanos para más aventuras increíbles</p>
+                <p><strong> I.E.S.F.T:</strong> "Cirilo Sanchez Cabrejos" - Mitopampa</p>
+            </div>
+        </footer>
+        
+        <h2 class="section-title">Encuesta de Experiencia</h2>
+        
+        <form id="registrationForm">         
+            <h2>Tu Opinión es Valiosa</h2>         
+            <input type="text" id="nombres" placeholder="Nombres Completos *" required />         
+            <input type="text" id="apellidos" placeholder="Apellidos *" required />         
+            <input type="email" id="correo" placeholder="Correo Electrónico *" required />         
+            <input type="text" id="telefono" placeholder="Número de Teléfono *" required />         
+            <input type="text" id="opinion" placeholder="Comparte tu experiencia y sugerencias *" required />         
+            <input type="submit" class="btn" value="Enviar Encuesta" />     
+        </form>
+
+        <div class="thank-you" id="thankYou">
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            
+            <div class="checkmark"></div>
+            <h2 id="thankYouTitle">¡Gracias!</h2>
+            <p id="thankYouMessage">Tu encuesta se ha enviado exitosamente.<br>Valoramos mucho tu participación y comentarios.</p>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de navegación mejorado
+        function showPage(pageId) {
+            // Ocultar todas las páginas con animación
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Pequeña pausa para la transición
+            setTimeout(() => {
+                // Mostrar la página seleccionada
+                document.getElementById(pageId).classList.add('active');
+                
+                // Animar elementos de la nueva página
+                animatePageEntry();
+            }, 100);
+            
+            // Actualizar navegación activa
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll suave al top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Función mejorada para enviar email directamente
+        async function sendEmailDirect(formData) {
+            try {
+                // Configurar parámetros del email
+                const emailParams = {
+                    to_email: 'denisnnoe@gmail.com',
+                    from_name: `${formData.nombres} ${formData.apellidos}`,
+                    from_email: formData.correo,
+                    phone: formData.telefono,
+                    message: formData.opinion,
+                    date: new Date().toLocaleString('es-PE', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    }),
+                    subject: `Nueva Encuesta Turística - ${formData.nombres} ${formData.apellidos}`
+                };
+
+                // Método de respaldo con mailto mejorado
+                return sendEmailFallback(formData);
+
+            } catch (error) {
+                console.error('Error en envío directo:', error);
+                return sendEmailFallback(formData);
+            }
+        }
+
+        // Método de respaldo con mailto mejorado
+        function sendEmailFallback(formData) {
+            const subject = `Nueva Encuesta Turística - ${formData.nombres} ${formData.apellidos}`;
+            const body = `
+NUEVA ENCUESTA DE EXPERIENCIA TURÍSTICA
+==========================================
+
+👤 DATOS DEL VISITANTE:
+• Nombre Completo: ${formData.nombres} ${formData.apellidos}
+• Correo Electrónico: ${formData.correo}
+• Teléfono: ${formData.telefono}
+
+💭 OPINIÓN Y EXPERIENCIA:
+${formData.opinion}
+
+📅 Fecha: ${new Date().toLocaleString('es-PE')}
+🌐 Enviado desde: Sitio Web Centros Turísticos Santa Cruz
+🎓 Proyecto: I.E. "Cirilo Sanchez Cabrejos" - Mitopampa
+            `;
+            
+            try {
+                const mailtoLink = `mailto:denisnnoe@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Crear un enlace temporal y hacer clic
+                const tempLink = document.createElement('a');
+                tempLink.href = mailtoLink;
+                tempLink.style.display = 'none';
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+                
+                return { success: true, method: 'mailto' };
+            } catch (error) {
+                console.error('Error en método de respaldo:', error);
+                return { success: false, method: 'error' };
+            }
+        }
+
+        // Manejo del formulario mejorado
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener todos los datos del formulario
+            const nombres = document.getElementById('nombres').value.trim();
+            const apellidos = document.getElementById('apellidos').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const opinion = document.getElementById('opinion').value.trim();
+            const primerNombre = nombres.split(' ')[0];
+            
+            // Validación mejorada
+            if (!nombres || !apellidos || !correo || !telefono || !opinion) {
+                showNotification('Por favor, completa todos los campos obligatorios (*)', 'error');
+                return;
+            }
+            
+            // Validar email con regex más estricto
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(correo)) {
+                showNotification('Por favor, ingresa un correo electrónico válido', 'error');
+                document.getElementById('correo').focus();
+                return;
+            }
+            
+            // Validar teléfono básico
+            if (telefono.length < 7) {
+                showNotification('Por favor, ingresa un número de teléfono válido', 'error');
+                document.getElementById('telefono').focus();
+                return;
+            }
+            
+            // Cambiar texto del botón para mostrar que se está enviando
+            const submitBtn = document.querySelector('.btn');
+            const originalText = submitBtn.value;
+            submitBtn.value = 'Enviando...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // Preparar datos para envío
+            const formData = {
+                nombres: nombres,
+                apellidos: apellidos,
+                correo: correo,
+                telefono: telefono,
+                opinion: opinion
+            };
+            
+            // Simular proceso de envío con feedback visual
+            setTimeout(async () => {
+                try {
+                    // Enviar email directamente
+                    const emailResult = await sendEmailDirect(formData);
+                    
+                    if (emailResult.success) {
+                        let successMessage = 'Se ha abierto tu cliente de email para enviar la encuesta.<br><strong>¡Por favor completa el envío!</strong>';
+                        
+                        // Personalizar el mensaje de gracias
+                        document.getElementById('thankYouTitle').textContent = `¡Gracias ${primerNombre}!`;
+                        document.getElementById('thankYouMessage').innerHTML = 
+                            `${successMessage}<br><br>Tu opinión es muy valiosa para nosotros y nos ayudará a mejorar nuestro proyecto educativo.`;
+                        
+                        // Mostrar notificación de éxito
+                        showNotification(`✅ Formulario procesado correctamente`, 'success');
+                        
+                        // Ocultar formulario y mostrar mensaje de gracias
+                        document.getElementById('registrationForm').style.display = 'none';
+                        document.getElementById('thankYou').style.display = 'block';
+                        
+                        // Scroll suave al mensaje de gracias
+                        document.getElementById('thankYou').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' 
+                        });
+                        
+                        // Volver al formulario después de 8 segundos
+                        setTimeout(() => {
+                            document.getElementById('thankYou').style.display = 'none';
+                            document.getElementById('registrationForm').style.display = 'block';
+                            document.getElementById('registrationForm').reset();
+                            
+                            // Restaurar mensajes originales
+                            document.getElementById('thankYouTitle').textContent = '¡Gracias!';
+                            document.getElementById('thankYouMessage').innerHTML = 
+                                'Tu encuesta se ha enviado exitosamente.<br>Valoramos mucho tu participación y comentarios.';
+                                
+                            // Scroll de vuelta al formulario
+                            document.getElementById('registrationForm').scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 8000);
+                        
+                    } else {
+                        throw new Error('No se pudo procesar la encuesta');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showNotification('❌ Error al procesar. Intenta por WhatsApp: +51 983739447', 'error');
+                }
+                
+                // Restaurar botón
+                submitBtn.value = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                
+            }, 1500);
+        });
+
+        // Función para mostrar notificaciones mejorada
+        function showNotification(message, type = 'info') {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            
+            let backgroundColor, borderColor;
+            switch (type) {
+                case 'success':
+                    backgroundColor = 'linear-gradient(135deg, #38ef7d, #11998e)';
+                    borderColor = '#38ef7d';
+                    break;
+                case 'error':
+                    backgroundColor = 'linear-gradient(135deg, #ff6b6b, #ee5a24)';
+                    borderColor = '#ff6b6b';
+                    break;
+                default:
+                    backgroundColor = 'linear-gradient(135deg, #667eea, #764ba2)';
+                    borderColor = '#667eea';
+            }
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${backgroundColor};
+                color: white;
+                padding: 18px 28px;
+                border-radius: 12px;
+                border-left: 4px solid ${borderColor};
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                font-weight: 600;
+                max-width: 350px;
+                font-size: 14px;
+                animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                backdrop-filter: blur(10px);
+            `;
+            notification.innerHTML = message;
+            
+            // Agregar al body
+            document.body.appendChild(notification);
+            
+            // Remover después de 5 segundos
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 500);
+            }, 5000);
+        }
+
+        // Agregar estilos de animación para notificaciones
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyles);
+
+        // Crear partículas de fondo mejoradas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 20 : 35;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Tamaño aleatorio más variado
+                const size = Math.random() * 8 + 3;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Posición inicial aleatoria
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animación de entrada para páginas
+        function animatePageEntry() {
+            const activePage = document.querySelector('.page.active');
+            if (!activePage) return;
+            
+            const elements = activePage.querySelectorAll('.card, .activity-item, .hero, .section-title, form, footer');
+            
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(40px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        }
+
+        // Validación en tiempo real mejorada
+        document.getElementById('correo').addEventListener('input', function() {
+            const email = this.value;
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            if (email && !emailRegex.test(email)) {
+                this.style.borderColor = '#ff6b6b';
+                this.style.boxShadow = '0 0 0 3px rgba(255, 107, 107, 0.2)';
+            } else if (email && emailRegex.test(email)) {
+                this.style.borderColor = '#38ef7d';
+                this.style.boxShadow = '0 0 0 3px rgba(56, 239, 125, 0.2)';
+            } else {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.35)';
+                this.style.boxShadow = 'none';
+            }
+        });
+
+        document.getElementById('telefono').addEventListener('input', function() {
+            // Permitir números, espacios, guiones, paréntesis y signo +
+            this.value = this.value.replace(/[^0-9\s\-\+\(\)]/g, '');
+            
+            // Validación visual básica
+            if (this.value.length >= 7) {
+                this.style.borderColor = '#38ef7d';
+                this.style.boxShadow = '0 0 0 3px rgba(56, 239, 125, 0.2)';
+            } else if (this.value.length > 0) {
+                this.style.borderColor = '#ffa726';
+                this.style.boxShadow = '0 0 0 3px rgba(255, 167, 38, 0.2)';
+            } else {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.35)';
+                this.style.boxShadow = 'none';
+            }
+        });
+
+        // Validación para campos de texto
+        ['nombres', 'apellidos', 'opinion'].forEach(fieldId => {
+            document.getElementById(fieldId).addEventListener('input', function() {
+                if (this.value.trim().length >= 2) {
+                    this.style.borderColor = '#38ef7d';
+                    this.style.boxShadow = '0 0 0 3px rgba(56, 239, 125, 0.2)';
+                } else if (this.value.length > 0) {
+                    this.style.borderColor = '#ffa726';
+                    this.style.boxShadow = '0 0 0 3px rgba(255, 167, 38, 0.2)';
+                } else {
+                    this.style.borderColor = 'rgba(255, 255, 255, 0.35)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+        });
+
+        // Eventos de inicialización
+        window.addEventListener('load', function() {
+            // Crear partículas solo si no es móvil
+            if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                createParticles();
+            }
+            
+            // Animación inicial de entrada
+            setTimeout(() => {
+                animatePageEntry();
+            }, 500);
+            
+            // Preloader simple
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Efectos adicionales para mejorar la experiencia
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    this.style.transform = 'translateY(-25px) scale(1.08) rotateX(8deg)';
+                    this.style.zIndex = '10';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateX(0deg)';
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Efectos para items de actividades
+        document.querySelectorAll('.activity-item').forEach((item, index) => {
+            item.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    this.style.transform = 'translateX(20px) scale(1.02)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0) scale(1)';
+            });
+        });
+
+        // Efectos para iconos sociales mejorados
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    this.style.transform = 'translateY(-15px) scale(1.25) rotate(18deg)';
+                }
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            });
+        });
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const thankYou = document.getElementById('thankYou');
+                if (thankYou.style.display === 'block') {
+                    thankYou.style.display = 'none';
+                    document.getElementById('registrationForm').style.display = 'block';
+                }
+            }
+        });
+
+        // Mejorar accesibilidad
+        document.querySelectorAll('a, button, input[type="submit"]').forEach(element => {
+            element.addEventListener('focus', function() {
+                this.style.outline = '3px solid rgba(0, 255, 136, 0.6)';
+                this.style.outlineOffset = '2px';
+            });
+            
+            element.addEventListener('blur', function() {
+                this.style.outline = 'none';
+            });
+        });
+
+        // Easter egg: Doble click en el logo
+        document.querySelector('.school-logo').addEventListener('dblclick', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 100);
+            
+            // Mostrar mensaje especial
+            showNotification('🎓 I.E.S.F.T "Cirilo Sanchez Cabrejos" - Mitopampa te saluda!', 'success');
+        });
+
+        // Mensaje de bienvenida
+        setTimeout(() => {
+            showNotification('🌟 Bienvenido a los Centros Turísticos de Santa Cruz', 'info');
+        }, 2000);
+
+    </script>
+</body>
+</html>
